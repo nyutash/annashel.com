@@ -5,7 +5,8 @@
   transition: background-color 0.2s ease;
   .navbar-brand {
     font-family: $font-family-sans-serif;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-normal;
+    text-transform: uppercase;
     color: $gray-900;
   }
   .navbar-nav {
@@ -13,9 +14,10 @@
       .nav-link {
         color: $gray-600;
         font-family: $font-family-sans-serif;
-        font-weight: $font-weight-bold;
+        font-weight: font-weight-light;
         font-size: 0.9rem;
         padding: 0.75rem 0;
+        text-transform: uppercase;
         &:hover,
         &:active {
           color: $primary;
