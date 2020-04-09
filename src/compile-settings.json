@@ -1,0 +1,12 @@
+{
+  "javascripts": [
+    "src/javascripts/app.js"
+  ],
+  "styles": [
+    "src/styles/stylesheet.scss"
+  ],
+  "fonts": [
+    "node_modules/material-design-icons/iconfont/MaterialIcons-Regular.*",
+    "src/fonts/**/*"
+  ]
+}
