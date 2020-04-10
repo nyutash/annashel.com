@@ -104,11 +104,6 @@ gulp.task('watch', ['build'], () => {
     gulp.watch('src/javascripts/**/*.js', ['watcher:javascripts']);
     gulp.watch('src/fonts/**/*.+(eot|svg|ttf|woff|woff2)', ['watcher:fonts']);
     gulp.watch('**/*.+(twig|twig.html|tpl|tpl.php|html)', ['watcher:templates']);
-
-    // Browser sync
-    browserSync.init(['dist/stylesheets/*.css', 'dist/javascripts/*.js'], {
-        proxy: gulpConfig.settings.options.proxy
-    });
 });
 gulp.task('build', (callback) => {
     runSequence(['build:fonts','build:javascripts', 'build:styles'], callback);
