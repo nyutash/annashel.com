@@ -18,10 +18,35 @@
   
   <nav>
     <div class="row">
-      <div class="mr-auto">
-        <a class="navbar--brand" href="#page_top">Anna Shelestiuk</a>
+      
+      <div class="navbar--brand mr-auto">
+        <a class="navbar--brand--logo" href="#page_top">Anna Shelestiuk logo</a>
       </div>
-      <div><a class="navbar--nav btn" href="">Menu</a></div>
+      
+      <div class="navbar--nav">
+        <div class="modal fade modal-fullscreen-menu" id="modalNavigation" role="dialog" tabindex="-1">
+          <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+            <span class="sr-only">Close</span>
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+          <div class="modal-dialog">
+            <nav class="list-group">
+              <a class="list-group-item" href="#what-i-do">What I do</a>
+              <a class="list-group-item" href="#education-and-skills">Education & Skills</a>
+              <a class="list-group-item" href="#personal">Personal</a>
+              <a class="list-group-item" href="#contact">Contact</a>
+            </nav>
+          </div>
+        </div>
+        <div class="jumbotron text-center">
+          <div class="container">
+            <button style="background-color: #2a2c36;" class="btn btn-primary btn-lg" data-target="#modalNavigation" data-toggle="modal" type="button">
+              <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </nav>
   
@@ -29,13 +54,15 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 offset-lg-1 col-sm-12">
-          <h1>Let’s create!</h1>
-          <p>Good day, my name is Anna. I am a UI/UX designer of Ukrainian descent based in Kolding, Denmark.</p>
-          <p>I enjoy creating graphics, layouts and usability concepts for Web Apps, E-Commerce and SaaS.</p>
-          <button type="button" class="btn btn-primary">
-            Download my CV 
-            <span class="iconify" data-inline="false" data-icon="ion:arrow-forward" style="font-size: 24px;"></span>
-          </button>
+          <div class="hero--content">
+            <h1>Let’s create!</h1>
+            <p>Good day, my name is Anna. I am a UI/UX designer of Ukrainian descent based in Kolding, Denmark.</p>
+            <p>I enjoy creating graphics, layouts and usability concepts for Web Apps, E-Commerce and SaaS.</p>
+            <button type="button" class="btn btn-primary">
+              Download my CV 
+              <span class="iconify" data-inline="false" data-icon="ion:arrow-forward" style="font-size: 24px;"></span>
+            </button>
+          </div>
           <div class="hero--social">
             <a href="https://www.linkedin.com/in/anna-shelestiuk" target="_blank">
               <span class="iconify" data-inline="false" data-icon="fa-brands:linkedin-in" style="font-size: 24px;"></span>
@@ -49,7 +76,7 @@
           </div>
         </div>
         <div class="col-lg-5 offset-lg-1 col-sm-12">
-          <img class="" src="img/hero-Anna-Shelestiuk.svg" alt="Designer Anna Shelestiuk">
+          <img class="" src="img/Anna-Shelestiuk.png" alt="Designer Anna Shelestiuk">
         </div>
       </div>
     </div>
@@ -68,7 +95,6 @@
       
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-12">
-          <img src="img/icon-ux-design.svg" alt="UX design">
           <h3>UX Design</h3>
           <ul>
             <li>Prototyping</li>
@@ -76,7 +102,6 @@
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
-          <img src="img/icon-ui-design.svg" alt="UI design">
           <h3>UI Design</h3>
           <ul>
             <li>Wireframe & mockup design</li>
@@ -85,14 +110,12 @@
           </ul>
         </div>        
         <div class="col-lg-3 col-md-6 col-sm-12">
-          <img src="img/icon-front-end.svg" alt="Front-end development">
           <h3>Front-end Development</h3>
           <ul>
             <li>Design implementation<br>(CSS3, HTML5, template marckup understanding)</li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12">
-          <img src="img/icon-dtp.svg" alt="DTP">
           <h3>DTP & Layout</h3>
           <ul>
             <li>Layout creation<br>(e.g. brochures, articles)</li>
@@ -156,7 +179,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-5 offset-lg-1 col-md-6 col-sm-12">
-          <img src="img/personal-annas-family.svg" alt="Anna/'s family">
+          <img src="img/Annas-family.jpg" alt="Anna/'s family">
         </div>
         <div class="col-lg-5 col-md-6 col-sm-12">
           <h2>Personal</h2>
@@ -172,13 +195,15 @@
       
       <div class="row justify-content-center">
         <div class="col-lg-6 col-sm-12">
-          <h2>Contact me</h2>
-          <p>I am a message person, but a good old phone call also works for me. </p>
-          <img src="img/icon-contact.svg" alt="contact me">
-          <a href="mailto:anna.shelestyuk@gmail.com">anna.shelestyuk@gmail.com</a>
-          <hr class="devider">
-          <strong>+45 28 49 69 76</strong>
-          <hr class="devider">
+          <div class="contact--content">
+            <h2>Contact me</h2>
+            <p>I am a message person, but a good old phone call also works for me. </p>
+            <i class="icon contact--icon"></i>
+            <a href="mailto:anna.shelestyuk@gmail.com">anna.shelestyuk@gmail.com</a>
+            <hr class="devider">
+            <strong>+45 28 49 69 76</strong>
+            <hr class="devider">
+          </div>
           <div class="contact--social">
             <a href="https://www.linkedin.com/in/anna-shelestiuk" target="_blank">
               <span class="iconify" data-inline="false" data-icon="fa-brands:linkedin-in" style="font-size: 24px;"></span>
