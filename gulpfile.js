@@ -27,6 +27,7 @@ const concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 const runSequence = require('run-sequence');
 const cleanCSS = require('gulp-clean-css');
+const minify = require('gulp-minify');
 
 // Builders
 gulp.task('build:styles', (callback) => {
@@ -60,6 +61,7 @@ gulp.task('process:javascripts', () => {
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(sourcemaps.write())
+        .pipe(minify())
         .pipe(gulp.dest('dist/javascripts'));
 });
 gulp.task('process:fonts', () => {
