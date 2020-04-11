@@ -49,7 +49,8 @@ gulp.task('process:styles', () => {
             browsers: ['last 4 versions'],
             cascade: false
         }))
-        .pipe(cleanCSS())
+        // Commented until
+        //.pipe(cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/stylesheets'));
 });

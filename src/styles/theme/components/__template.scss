@@ -1,20 +1,20 @@
 // |--------------------------------------------------------------------------
-// | Boxy
+// | [Component name]
 // |--------------------------------------------------------------------------
 // |
 // | This file contains styles for the following:
-// | - .boxy
+// | - .[your_class]
 // |
 
 // --------------------------------------------------
 // Variables
 // --------------------------------------------------
 
+
 // --------------------------------------------------
 // Mixins
 // --------------------------------------------------
 
-@mixin boxy-mixin() {}
 
 // --------------------------------------------------
 // Styling
@@ -31,25 +31,25 @@
 // --------------------------------------------------
 
 // Mobile - and up
-@media #{$breakpoint-mobile-and-up} {}
+@include media-breakpoint-up(sm) {}
 
 // Mobile - only
-@media #{$breakpoint-mobile-only} {}
+@include media-breakpoint-only(sm) {}
 
 // Tablet - and up
-@media #{$breakpoint-tablet-and-up} {}
+@include media-breakpoint-up(md) {}
 
 // Tablet - only
-@media #{$breakpoint-tablet-only} {}
+@include media-breakpoint-only(md) {}
 
 // Desktop - and up
-@media #{$breakpoint-desktop-and-up} {}
+@include media-breakpoint-up(lg) {}
 
 // Desktop - only
-@media #{$breakpoint-desktop-only} {}
+@include media-breakpoint-only(lg) {}
 
 // Large desktop - and up
-@media #{$breakpoint-large-desktop-and-up} {}
+@include media-breakpoint-up(xl) {}
 
 // Print
 @media print {}

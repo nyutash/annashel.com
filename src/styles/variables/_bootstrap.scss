@@ -1,12 +1,10 @@
-$bootstrap-sass-asset-helper: false !default;
 //
-// Variables
+// Bootstrap overriden variables
 // --------------------------------------------------
 
-
 //== Colors
-
 $brand-primary:         #78BDC4;
+
 // Secondary
 $brand-secondary:       #F7444F;
 
@@ -22,16 +20,16 @@ $text-color:            #012C3D;
 
 //** Global textual link color.
 $link-color:            #469AA3;
+
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%) !default;
+
 //** Link hover decoration.
 $link-hover-decoration: none;
-
 
 //== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
-
 $font-family-sans-serif:  "Muli", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-serif:       "Merriweather", Georgia, "Times New Roman", Times, serif;
 
@@ -48,6 +46,7 @@ $font-size-h6:            $font-size-base;
 
 //** Unit-less `line-height` for use in components like buttons.
 $line-height-base:        1.428571429 !default; // 20/14
+
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
@@ -63,7 +62,6 @@ $headings-color:          $text-color;
 //== Components
 //
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
-
 $padding-base-vertical:     8px !default;
 $padding-base-horizontal:   13px !default;
 
@@ -87,7 +85,6 @@ $border-radius-small:       2px;
 //== Buttons
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
-
 $btn-font-weight:                600;
 
 $btn-default-color:              #FAF2EF;
@@ -98,41 +95,14 @@ $btn-primary-color:              #FAF2EF;
 $btn-primary-bg:                 $brand-primary !default;
 $btn-primary-border:             $brand-primary !default;
 
-//== Media queries breakpoints
+// Grid breakpoints
 //
-//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
-
-// Extra small screen / phone
-//** Deprecated `$screen-xs` as of v3.0.1
-$screen-xs:                  480px !default;
-//** Deprecated `$screen-xs-min` as of v3.2.0
-$screen-xs-min:              $screen-xs !default;
-//** Deprecated `$screen-phone` as of v3.0.1
-$screen-phone:               $screen-xs-min !default;
-
-// Small screen / tablet
-//** Deprecated `$screen-sm` as of v3.0.1
-$screen-sm:                  768px !default;
-$screen-sm-min:              $screen-sm !default;
-//** Deprecated `$screen-tablet` as of v3.0.1
-$screen-tablet:              $screen-sm-min !default;
-
-// Medium screen / desktop
-//** Deprecated `$screen-md` as of v3.0.1
-$screen-md:                  992px !default;
-$screen-md-min:              $screen-md !default;
-//** Deprecated `$screen-desktop` as of v3.0.1
-$screen-desktop:             $screen-md-min !default;
-
-// Large screen / wide desktop
-//** Deprecated `$screen-lg` as of v3.0.1
-$screen-lg:                  1200px !default;
-$screen-lg-min:              $screen-lg !default;
-//** Deprecated `$screen-lg-desktop` as of v3.0.1
-$screen-lg-desktop:          $screen-lg-min !default;
-
-// So media queries don't overlap when required, provide a maximum
-$screen-xs-max:              ($screen-sm-min - 1) !default;
-$screen-sm-max:              ($screen-md-min - 1) !default;
-$screen-md-max:              ($screen-lg-min - 1) !default;
-
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+);
