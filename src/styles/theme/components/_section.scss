@@ -1,0 +1,327 @@
+// |--------------------------------------------------------------------------
+// | Section
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .[your_class]
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+.section--what-i-do {
+  margin: 20px -8px;
+  background: $body-bg-secondary;
+      text-align: center;
+  
+  &::before {
+    display: block;
+    width: 100%;
+    height: 240px;
+    background: url(../../img/bg-curve-up-1.svg) center top no-repeat;
+    content: " ";
+  }
+  
+  &::after {
+    display: block;
+    width: 100%;
+    height: 270px;
+    background: url(../../img/bg-curve-bt-1.svg) center bottom no-repeat;
+    background-size: cover;
+    content: " ";
+  }
+  
+  .section--extra--bg {
+    
+    .row--skill {
+      padding: 40px 0 0;
+    }
+    .h3--skill{
+      padding-top: 120px;
+      margin: $padding-base-vertical 0;
+      text-align: center;
+      background: center -20px no-repeat;
+
+      &.h3--ux  { background-image: url(../../img/icon-ux-design.svg); }    
+      &.h3--ui  { background-image: url(../../img/icon-ui-design.svg); }
+      &.h3--fd  { background-image: url(../../img/icon-front-end.svg); }
+      &.h3--dtp { background-image: url(../../img/icon-dtp.svg); }
+
+    }
+
+    .ul--center {
+      padding: 0;
+
+      > li {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        line-height: ($line-height-base*1.3);
+      }
+    }
+  }
+}
+
+.section--educ {
+  h2 {
+    text-align: center;
+  }
+  .row {
+    margin-bottom: 20px;
+    font-size: 99%;
+    
+    ul {
+      padding-left: 32px;
+    
+      > li {
+        list-style: none;
+        position: relative;
+        margin: 4px 0;
+
+        &::before {
+         position: absolute;
+          top: 8px;
+          margin-left: -24px;
+          width: 24px;
+          line-height: 1em;
+          content: "\f111";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          color: $brand-primary;
+          font-size: 8px;
+        }
+      }
+    }
+    a {
+      color: lighten($text-color, 10%);
+      transition: color 0.5s;
+      
+      &:hover {
+        color: $brand-secondary;
+      }
+    }
+  }
+} 
+
+.section--personal {
+  margin: 40px -8px 0;
+  background: $body-bg-secondary;
+  text-align: center;
+  
+    &::before {
+      display: block;
+      width: 100%;
+      height: 90px;
+      background: url(../../img/bg-curve-up-2.svg) center top no-repeat;
+      content: " ";
+    }
+  .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+    .row {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .personal-img--container{
+    display: block;
+    width: 290px;
+    height: 320px; 
+   
+    background: url(../../img/personal-bkg.svg) no-repeat;
+    background-size: contain;
+    position: relative;
+    margin: auto;
+
+    img {
+      position: absolute;
+      width: 190px;
+      bottom: 38px;
+      left: 45px;
+    }
+  }
+}
+
+.section--contact {
+  margin: 0px -8px;
+  background: $body-bg-secondary;
+  padding: 40px 0;
+  text-align: center;
+  border-bottom: 11px solid $brand-primary;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .contact--bg {
+    position: relative;
+    padding-bottom: 35px;
+    
+    .contact--content--wrapper {
+
+      .contact--content {
+        padding-top: 95px;
+        margin: $padding-base-horizontal 0;
+        text-align: center;
+        background: center 16px no-repeat;
+        background-image: url(../../img/icon-contact.svg);
+
+        font-size: $font-size-large;
+        font-weight: 600;
+
+        a.email {
+          color: $text-color;
+          transition: color 0.5s;
+
+          &:hover {
+            color: $brand-secondary;
+          }
+        }
+
+        hr {
+          width: 80px;
+          color: $brand-primary;
+          border: 1px solid;
+          margin: $padding-large-horizontal auto;
+        }
+      }
+    }
+
+    .social {
+      &.contact--social {
+        justify-content: center;
+        color: $text-color;
+      }
+    }
+    
+    .contact--pointer {
+      display: none;
+      position: absolute;
+      bottom: 0px;
+      right: 110px;
+      width: 160px;
+      height: 50px;
+
+      font-family: 'Handlee', cursive;
+      font-size: $font-size-small;
+      color: $btn-default-color;
+
+      background:  url(../../img/bg-arrow.svg) top left no-repeat;
+      padding: 25px 0 0 45px;
+    }
+  }
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+// Small devices (landscape phones, 576px and up)
+@include media-breakpoint-up(sm) {
+  .section--personal {
+    text-align: center;
+    
+    .personal-img--container {
+      width: 412px;
+      height: 450px; 
+    }
+    .personal-img--container {
+      img {
+        width: 267px;
+        bottom: 55px;
+        left: 63px;
+      }
+    }
+  }
+}
+
+// Mobile - only
+@include media-breakpoint-only(sm) {}
+
+// Tablet - and up
+// Medium devices (tablets, 768px and up)
+@include media-breakpoint-up(md) {
+  .section--educ {
+    h2, .h2 {
+      text-align: left;
+    }
+  }
+}
+
+// Tablet - only 
+@include media-breakpoint-only(md) {
+.section--personal {
+    text-align: left;
+    
+    .personal-img--container {
+      width: 290px;
+      height: 320px;  
+    }
+    .personal-img--container {
+      img {
+        width: 190px;
+        bottom: 38px;
+        left: 45px;
+      }
+    }
+  }
+}
+
+// Desktop - and up
+// Large devices (desktops, 992px and up)
+@include media-breakpoint-up(lg) {
+  .section--personal {
+    text-align: left;
+  }
+}
+
+// Desktop - only
+@include media-breakpoint-only(lg) {
+  .section--contact {
+    .contact--bg {
+      .contact--pointer {
+        display: block;
+        right: 65px;
+      }
+    }
+  }
+}
+
+// Large desktop - and up
+// Extra large devices (large desktops, 1200px and up)
+@include media-breakpoint-up(xl) {
+  .section--contact {
+    .contact--bg {
+      .contact--pointer {
+        display: block;
+      }
+    }
+  }
+}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}

@@ -1,0 +1,217 @@
+// |--------------------------------------------------------------------------
+// | [Component name]
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .[your_class]
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+header {
+  display: flex;
+  align-items: center;
+  height: auto;
+  
+  text-align: center;
+  
+  .hero--action {
+    padding: ($padding-base-vertical*2) 0;
+    align-content: center;
+  
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+
+      color: lighten($body-bg, 10%);
+      font-size: $font-size-base;
+
+      padding: $padding-base-horizontal ($padding-base-horizontal*2);
+      background: linear-gradient(90deg, $btn-primary-bg 0%, $brand-primary 100%);
+      background-size: 100%;
+      border-radius: $border-radius-base;
+      border: none;
+      
+      position: relative;
+      z-index: 5;
+      
+      cursor: pointer;
+      transition: all 300ms;
+      
+      
+      &:before {
+        border-radius: inherit;
+        background-image: linear-gradient(90deg, darken($btn-primary-bg, 10%) 0%, darken($brand-primary, 10%) 100%);
+        content: '';    
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0; 
+        left: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: -5;
+        transition: all 300ms;
+      }
+      
+      
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+        
+        .material-icons {
+          margin-left: ($padding-xs-horizontal)*2;
+          margin-right: -($padding-xs-horizontal);
+        }
+      }
+      
+      &:focus {
+        outline: 1px dotted darken($body-bg, 15%);
+      }
+
+      .material-icons {
+        margin-left: $padding-xs-horizontal;
+        transition: all 300ms;
+      }
+    }
+  }
+  
+  .hero--img--container {
+    display: flex;
+    align-items: center;
+    
+    & .hero--desctop {
+      display: none;
+    }
+    & .hero--mobile {
+      display: block;
+    }
+
+    .hero--img {
+      display: block;
+      width: 502px;
+      height: 480px;
+      background: url(../../img/hero-bkg.svg) no-repeat;
+      background-size: contain;
+      position: relative;
+      
+      img {
+        width: 262px;
+        position: absolute;
+        bottom: 70px;
+        left: 70px;
+      }
+    }
+  }
+}
+
+.social {
+  margin: ($padding-base-vertical*2) 0;
+  display: inline-flex;
+  align-items: center;
+  
+  a {
+    color: $btn-default-color;
+    font-size: $font-size-large;
+    height: 32px;
+    width: 32px;
+    display: inline-flex;
+    align-items: center;
+    
+    & + a {
+      margin-left: $padding-base-horizontal;
+    }
+    
+    > i {
+      margin: auto;
+    }
+    
+    &:hover, > i:hover {
+      color: $brand-secondary;
+    }
+  }
+  
+  &.hero--social {
+    
+    a{
+      background: $btn-default-bg;
+      border-radius: $border-radius-small;
+      
+      &:hover {
+        background: darken($btn-default-bg, 5%);
+        color: $brand-secondary;
+        
+        i, i:hover {
+          color: $brand-secondary;
+        }
+      }
+    }
+  }
+}
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@include media-breakpoint-up(sm) {}
+
+// Mobile - only
+@include media-breakpoint-only(sm) {}
+
+// Tablet - and up
+@include media-breakpoint-up(md) {}
+
+// Tablet - only
+@include media-breakpoint-only(md) {}
+
+// Desktop - and up
+@include media-breakpoint-up(lg) {
+  header {
+    height: 80vh;
+    text-align: left;
+    
+    .hero--img--container {
+
+      & .hero--desctop {
+        display: block;
+      }
+      & .hero--mobile {
+        display: none;
+      }
+    }
+    
+  }
+}
+
+// Desktop - only
+@include media-breakpoint-only(lg) {}
+
+// Large desktop - and up
+@include media-breakpoint-up(xl) {}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}

@@ -19,12 +19,93 @@
 // --------------------------------------------------
 // Styling
 // --------------------------------------------------
-
-
+nav {
+  
+  .navbar--brand--logo{
+    padding: 30px 20px 30px 30px;
+    display: block;
+    transition: opasity 0.5s;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  .navbar--nav--btn  {
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 23px 30px 30px 20px;
+    background: url(../../img/icon-menu.svg) center no-repeat;
+    border: none;
+    cursor: pointer;
+    transition: background 0.5s;
+    
+    &:hover {
+      background: url(../../img/icon-menu-hover.svg) center no-repeat;
+    }
+    
+    &:focus {
+      outline: 1px dotted darken($body-bg, 15%);
+    }
+  }
+  
+}
 // --------------------------------------------------
 // Variants
 // --------------------------------------------------
+/* The Overlay (background) */
+.overlay {
+  background-color: $text-color;
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
 
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+.overlay a {
+  padding: 8px;
+  font-size: $font-size-h2;
+  color: $brand-primary;
+  font-weight: 600;
+  display: block; 
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: darken($brand-primary, 20%);
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  font-size: 40px;
+  top: 10px;
+  right: 20px;
+  transition: 0.3s;
+  
+  > span {
+    font-size: $font-size-h2;
+    color: $brand-primary;
+  }
+  
+  &:hover, &:hover > span {
+    color: darken($brand-primary, 20%);
+  }
+}
 
 // --------------------------------------------------
 // Responsive
@@ -43,7 +124,22 @@
 @include media-breakpoint-only(md) {}
 
 // Desktop - and up
-@include media-breakpoint-up(lg) {}
+@include media-breakpoint-up(lg) {
+  nav {
+    .overlay .closebtn {
+      top: 20px;
+      right: 60px;
+    }
+    
+    .navbar--brand--logo {
+      padding: 32px 75px;
+    }
+
+    .navbar--nav--btn {
+      margin: 28px 75px;
+    }
+  }
+}
 
 // Desktop - only
 @include media-breakpoint-only(lg) {}

@@ -12,6 +12,12 @@
   <link href="dist/stylesheets/stylesheet.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Handlee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link href="img/favicon.ico" rel="icon" type=image/png>
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" >
+  
 </head>
 
 <body>
@@ -20,31 +26,29 @@
     <div class="row">
       
       <div class="navbar--brand mr-auto">
-        <a class="navbar--brand--logo" href="#page_top">Anna Shelestiuk logo</a>
+        <a class="navbar--brand--logo" href="#page_top">
+          <img src="img/logo.svg" alt="Anna Shelestiuk logo">
+        </a>
       </div>
       
       <div class="navbar--nav">
-        <div class="modal fade modal-fullscreen-menu" id="modalNavigation" role="dialog" tabindex="-1">
-          <button aria-label="Close" class="close" data-dismiss="modal" type="button">
-            <span class="sr-only">Close</span>
-            <span class="glyphicon glyphicon-remove"></span>
-          </button>
-          <div class="modal-dialog">
-            <nav class="list-group">
-              <a class="list-group-item" href="#what-i-do">What I do</a>
-              <a class="list-group-item" href="#education-and-skills">Education & Skills</a>
-              <a class="list-group-item" href="#personal">Personal</a>
-              <a class="list-group-item" href="#contact">Contact</a>
-            </nav>
+        <!-- The overlay -->
+        <div id="myNav" class="overlay">
+
+          <a href="javascript:void(0)" class="closebtn modal-nav-close">
+            <span class="material-icons">close</span>
+          </a>
+
+          <!-- Overlay content -->
+          <div class="overlay-content">
+            <a href="#what-i-do" class="modal-nav-close">What I do</a>
+            <a href="#education-and-skills" class="modal-nav-close">Education & Skills</a>
+            <a href="#personal" class="modal-nav-close">Personal</a>
+            <a href="#contact" class="modal-nav-close">Contact</a>
           </div>
+
         </div>
-        <div class="jumbotron text-center">
-          <div class="container">
-            <button style="background-color: #2a2c36;" class="btn btn-primary btn-lg" data-target="#modalNavigation" data-toggle="modal" type="button">
-              <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
-            </button>
-          </div>
-        </div>
+        <span class="navbar--nav--btn modal-nav-open"></span>
       </div>
 
     </div>
@@ -53,86 +57,97 @@
   <header>
     <div class="container">
       <div class="row">
+        <div class="col-lg-5 offset-lg-1 col-sm-12 hero--img--container hero--mobile">
+          <div class="hero--img">
+            <img src="img/Anna-Shelestiuk.png" alt="Photo of Anna Shelestiuk">
+          </div>
+        </div>
         <div class="col-lg-4 offset-lg-1 col-sm-12">
           <div class="hero--content">
             <h1>Let’s create!</h1>
             <p>Good day, my name is Anna. I am a UI/UX designer of Ukrainian descent based in Kolding, Denmark.</p>
-            <p>I enjoy creating graphics, layouts and usability concepts for Web Apps, E-Commerce and SaaS.</p>
-            <button type="button" class="btn btn-primary">
-              Download my CV 
-              <span class="iconify" data-inline="false" data-icon="ion:arrow-forward" style="font-size: 24px;"></span>
-            </button>
+            <p>I enjoy creating graphics, layouts and usability concepts for web sites, E-Commerce and SaaS.</p>
+            <div class="hero--action">
+              <button type="button" class="btn btn-primary">
+                Download my CV 
+                <span class="material-icons">arrow_right_alt</span>
+              </button>
+            </div>
           </div>
-          <div class="hero--social">
+          <div class="hero--social social">
             <a href="https://www.linkedin.com/in/anna-shelestiuk" target="_blank">
-              <span class="iconify" data-inline="false" data-icon="fa-brands:linkedin-in" style="font-size: 24px;"></span>
+              <i class="fab fa-linkedin-in"></i>
             </a>
             <a href="https://dribbble.com/annashel" target="_blank">
-              <span class="iconify" data-inline="false" data-icon="fa-brands:dribbble" style="font-size: 24px;"></span>
+              <i class="fab fa-dribbble"></i>
             </a>
             <a href="https://www.behance.net/annashel" target="_blank">
-              <span class="iconify" data-inline="false" data-icon="fa-brands:behance" style="font-size: 24px;"></span>
+              <i class="fab fa-behance"></i>
             </a>
           </div>
         </div>
-        <div class="col-lg-5 offset-lg-1 col-sm-12">
-          <img class="" src="img/Anna-Shelestiuk.png" alt="Designer Anna Shelestiuk">
+        <div class="col-lg-5 offset-lg-1 col-sm-12 hero--img--container hero--desctop">
+          <div class="hero--img">
+            <img src="img/Anna-Shelestiuk.png" alt="Photo of Anna Shelestiuk">
+          </div>
         </div>
       </div>
     </div>
   </header>
   
-  <section class="page-section" id="what-i-do">
-    <div class="container">
-      
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-sm-12">
-          <h2>What I do</h2>
-          <p>I am best in combining creative and technical tasks. I feel comfortable working in technical environments, IT-projects and marketing teams.</p>
-          <p>My working style is project- and target-oriented. I realise projects within a defined time contingent and within the planned budget.</p>
+  <section class="page-section section--what-i-do" id="what-i-do">
+    <div class="section--extra--bg">
+      <div class="container">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-6 col-sm-12">
+            <h2>What I do</h2>
+            <p>I am best in combining creative and technical tasks. I feel comfortable working in technical environments, IT-projects and marketing teams.</p>
+            <p>My working style is project- and target-oriented. I realise projects within a defined time contingent and within the planned budget.</p>
+          </div>
         </div>
+
+        <div class="row row--skill">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h3 class="h3--skill h3--ui">Web & UI Design</h3>
+            <ul class="ul--center">
+              <li>Wireframe & mockup design</li>
+              <li>Responsive layout concepts</li>
+              <li>E-Commerce design</li>
+            </ul>
+          </div> 
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h3 class="h3--skill h3--ux">UX Design</h3>
+            <ul class="ul--center">
+              <li>Prototyping</li>
+              <li>Research and user testing</li>
+            </ul>
+          </div>       
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h3 class="h3--skill h3--fd">Front-end Development</h3>
+            <ul class="ul--center">
+              <li>Design implementation<br>(CSS3, HTML5, Bootstrap)</li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h3 class="h3--skill h3--dtp">DTP & Layout</h3>
+            <ul class="ul--center">
+              <li>Layout creation<br>(e.g. brochures, articles)</li>
+            </ul>
+          </div>
+        </div>
+
       </div>
-      
-      <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <h3>UX Design</h3>
-          <ul>
-            <li>Prototyping</li>
-            <li>Research and user testing</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <h3>UI Design</h3>
-          <ul>
-            <li>Wireframe & mockup design</li>
-            <li>Responsive layout concepts</li>
-            <li>E-Commerce design</li>
-          </ul>
-        </div>        
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <h3>Front-end Development</h3>
-          <ul>
-            <li>Design implementation<br>(CSS3, HTML5, template marckup understanding)</li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-          <h3>DTP & Layout</h3>
-          <ul>
-            <li>Layout creation<br>(e.g. brochures, articles)</li>
-          </ul>
-        </div>
-      </div>
-      
     </div>
   </section>
   
-  <section class="page-section" id="education-and-skills">
+  <section class="page-section section--educ" id="education-and-skills">
     <div class="container">
 
-      <div class="row">
-        <div class="col-lg-5 offset-lg-1 col-md-6 col-sm-12">
+      <div class="row justify-content-around">
+        <div class="col-lg-5 col-md-6 col-sm-12">
           <h2>Education</h2>
-          <p>I studied and graduated at the National Technical University of Ukraine (NTUU) in Kyiv.</p>
+          <p>I studied and graduated at the National Technical University of Ukraine (<a rel="nofollow"  target="_blank" href="https://inter.kpi.ua/">NTUU "KPI"</a>) in Kyiv.</p>
           <ul>
             <li><strong>MSc in Digital Publishing Technologies</strong><br>(2008–2010)</li>
             <li><strong>BSc in Printing and Digital Publishing Technologies</strong><br>(2004–2008)</li>
@@ -143,19 +158,19 @@
           <p>Constant learning is an integral part of my working processes.</p>
           <ul>
             <li><strong>User Experience Design and Research</strong> (2018, 1 month online course at Coursera)</li>
-            <li><strong>Advanced Training in Web Design</strong> (2017, 3 month course at M.E.A.T. academy in Kyiv, Ukraine)</li>
+            <li><strong>Advanced Training in Web Design</strong> (2017, 3 month course at <a rel="nofollow"  target="_blank" href="https://meat.study/">MEAT Study academy</a> in Kyiv, Ukraine)</li>
           </ul>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-5 offset-lg-1 col-md-6 col-sm-12">
+      <div class="row justify-content-around">
+        <div class="col-lg-5 col-md-6 col-sm-12">
           <h2>Tools & Skills</h2>
           <p>I use a wide range of applications in my daily work. Here is a short overview about the tools I am currently working with.</p>
           <ul>
-            <li><strong>UI Design & Prototyping:</strong> Figma, Sketch, InVision, Adobe XD</li>
+            <li><strong>UI Design & Prototyping:</strong> Figma, Sketch, InVision, Adobe&nbsp;XD</li>
             <li><strong>Design Applications:</strong> Adobe CC (Photoshop, Illustrator, InDesign, After Effects)</li>
-            <li><strong>Front-end Development:</strong> HTML, CSS, Bootstrap</li>
+            <li><strong>Front-end Development:</strong> HTML, CSS, Bootstrap, Git</li>
             <li><strong>CMS:</strong> Drupal, WordPress, Joomla</li>
             <li><strong>Presentation:</strong> Readymag, PowerPoint, Google Slides</li>
           </ul>
@@ -175,11 +190,13 @@
     </div>
   </section>
   
-  <section class="page-section" id="personal">
+  <section class="page-section section--personal" id="personal">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-5 offset-lg-1 col-md-6 col-sm-12">
-          <img src="img/Annas-family.jpg" alt="Anna/'s family">
+      <div class="row justify-content-around">
+        <div class="col-lg-5 col-md-6 col-sm-12">
+          <div class="personal-img--container">
+            <img src="img/Annas-family.jpg" alt="Anna/'s family">
+          </div>
         </div>
         <div class="col-lg-5 col-md-6 col-sm-12">
           <h2>Personal</h2>
@@ -190,33 +207,34 @@
     </div>
   </section>
   
-  <section class="page-section" id="contact">
+  <section class="page-section section--contact" id="contact">
     <div class="container">
       
       <div class="row justify-content-center">
-        <div class="col-lg-6 col-sm-12">
-          <div class="contact--content">
+        <div class="col-lg-6 col-sm-12 contact--bg">
+          <div class="contact--content--wrapper">
             <h2>Contact me</h2>
-            <p>I am a message person, but a good old phone call also works for me. </p>
-            <i class="icon contact--icon"></i>
-            <a href="mailto:anna.shelestyuk@gmail.com">anna.shelestyuk@gmail.com</a>
-            <hr class="devider">
-            <strong>+45 28 49 69 76</strong>
-            <hr class="devider">
+            <p>I prefer texting, but a good old phone call also works for me. </p>
+            <div class="contact--content">
+              <i class="icon contact--icon"></i>
+              <a class="email" href="mailto:anna.shelestyuk@gmail.com">anna.shelestyuk@gmail.com</a>
+              <hr class="devider">
+              <strong>+45 28 49 69 76</strong>
+              <hr class="devider">
+            </div>
           </div>
-          <div class="contact--social">
+          <div class="contact--social social">
             <a href="https://www.linkedin.com/in/anna-shelestiuk" target="_blank">
-              <span class="iconify" data-inline="false" data-icon="fa-brands:linkedin-in" style="font-size: 24px;"></span>
+              <i class="fab fa-linkedin-in"></i>
             </a>
             <a href="https://dribbble.com/annashel" target="_blank">
-              <span class="iconify" data-inline="false" data-icon="fa-brands:dribbble" style="font-size: 24px;"></span>
+              <i class="fab fa-dribbble"></i>
             </a>
             <a href="https://www.behance.net/annashel" target="_blank">
-              <span class="iconify" data-inline="false" data-icon="fa-brands:behance" style="font-size: 24px;"></span>
+              <i class="fab fa-behance"></i>
             </a>
           </div>
           <div class="contact--pointer">
-            <span class="contact--pointer--arrow"></span>
             <span class="contact--pointer-text">Here is the portfolio</span>
           </div>
         </div>
