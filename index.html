@@ -18,6 +18,16 @@
   <link href="img/favicon.ico" rel="icon" type=image/png>
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" >
   
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164000643-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-164000643-1');
+  </script>
+  
 </head>
 
 <body>
@@ -57,39 +67,41 @@
   <header>
     <div class="container">
       <div class="row">
-        <div class="col-lg-5 offset-lg-1 col-sm-12 hero--img--container hero--mobile">
-          <div class="hero--img">
-            <img src="img/Anna-Shelestiuk.png" alt="Photo of Anna Shelestiuk">
-          </div>
-        </div>
-        <div class="col-lg-4 offset-lg-1 col-sm-12">
-          <div class="hero--content">
-            <h1>Let’s create!</h1>
-            <p>Good day, my name is Anna. I am a UI/UX designer of Ukrainian descent based in Kolding, Denmark.</p>
-            <p>I enjoy creating graphics, layouts and usability concepts for web sites, E-Commerce and SaaS.</p>
-            <div class="hero--action">
-              <button type="button" class="btn btn-primary">
-                Download my CV 
-                <span class="material-icons">arrow_right_alt</span>
-              </button>
+        <div class="col-lg-12 col-sm-12 hero--container">
+          
+          <div class="hero--img--wrapper">
+            <div class="hero--img">
+              <img src="img/Anna-Shelestiuk.png" alt="Photo of Anna Shelestiuk">
             </div>
           </div>
-          <div class="hero--social social">
-            <a href="https://www.linkedin.com/in/anna-shelestiuk" target="_blank">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://dribbble.com/annashel" target="_blank">
-              <i class="fab fa-dribbble"></i>
-            </a>
-            <a href="https://www.behance.net/annashel" target="_blank">
-              <i class="fab fa-behance"></i>
-            </a>
+          
+          <div class="hero--content--wrapper">
+            <div class="hero--content">
+              <h1>Let’s create!</h1>
+              <p>Good day, my name is Anna. I am a UI/UX designer of Ukrainian descent based in Kolding, Denmark.</p>
+              <p>I enjoy creating graphics, layouts and usability concepts for web sites, E-Commerce and SaaS.</p>
+              <div class="hero--action">
+                <button type="button" class="btn btn-primary">
+                  Download my CV 
+                  <span class="material-icons">arrow_right_alt</span>
+                </button>
+              </div>
+            </div>
+            <div class="hero--social--wrapper">
+              <div class="hero--social social">
+                <a href="https://www.linkedin.com/in/anna-shelestiuk" target="_blank">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://dribbble.com/annashel" target="_blank">
+                  <i class="fab fa-dribbble"></i>
+                </a>
+                <a href="https://www.behance.net/annashel" target="_blank">
+                  <i class="fab fa-behance"></i>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-5 offset-lg-1 col-sm-12 hero--img--container hero--desctop">
-          <div class="hero--img">
-            <img src="img/Anna-Shelestiuk.png" alt="Photo of Anna Shelestiuk">
-          </div>
+          
         </div>
       </div>
     </div>
@@ -113,7 +125,6 @@
             <ul class="ul--center">
               <li>Wireframe & mockup design</li>
               <li>Responsive layout concepts</li>
-              <li>E-Commerce design</li>
             </ul>
           </div> 
           <div class="col-lg-3 col-md-6 col-sm-12">
@@ -242,10 +253,7 @@
       
     </div>
   </section>
-  
-  
   <script src="dist/javascripts/app.js"></script>
-  <script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
 
 </body>
 

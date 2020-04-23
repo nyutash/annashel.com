@@ -88,30 +88,33 @@ header {
     }
   }
   
-  .hero--img--container {
-    display: flex;
+  .hero--container {
     align-items: center;
-    
-    & .hero--desctop {
-      display: none;
-    }
-    & .hero--mobile {
+
+    .hero--content--wrapper {
       display: block;
+      margin: 0 20px;
     }
+  }
+  
+  .hero--img--wrapper {
+    display: block;
+    align-items: center;
 
     .hero--img {
       display: block;
-      width: 502px;
-      height: 480px;
+      width: 290px;
+      height: 310px;
       background: url(../../img/hero-bkg.svg) no-repeat;
       background-size: contain;
       position: relative;
-      
+      margin: auto;
+  
       img {
-        width: 262px;
+        width: 150px;
         position: absolute;
-        bottom: 70px;
-        left: 70px;
+        bottom: 44px;
+        left: 60px;
       }
     }
   }
@@ -171,7 +174,30 @@ header {
 // --------------------------------------------------
 
 // Mobile - and up
-@include media-breakpoint-up(sm) {}
+@include media-breakpoint-up(sm) {
+   header {
+    
+    .hero--img--wrapper {
+
+      div.hero--img {
+        width: 400px;
+        height: 427px;
+
+        img {
+          width: 206px;
+          bottom: 61px;
+          left: 80px;
+        }
+      }
+    }
+   .hero--content, .hero--social--wrapper{
+     width: 385px;
+     margin-left: auto;
+     margin-right: auto;
+   }
+    
+  }
+}
 
 // Mobile - only
 @include media-breakpoint-only(sm) {}
@@ -188,13 +214,38 @@ header {
     height: 80vh;
     text-align: left;
     
-    .hero--img--container {
+   .hero--container {
+      align-items: center;
+      flex-direction: row;
+      display: flex;
+      justify-content: space-around;
+      
+      .hero--img--wrapper {
+        width: 45%;
+        flex-grow: 1;
+        order: 2;
+        margin: 0 20px;
+        overflow: unset;
+        
+          .hero--img {
+            width: 502px;
+            height: 480px;
 
-      & .hero--desctop {
-        display: block;
-      }
-      & .hero--mobile {
-        display: none;
+            img {
+              width: 262px;
+              bottom: 68px;
+              left: 75px;
+            }
+          }
+        }
+      
+      .hero--content--wrapper {
+        width: 35%;
+        flex-grow: 1;
+        order: 1;
+        
+        text-align: left;
+        margin: 0 20px;
       }
     }
     
