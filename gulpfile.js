@@ -1,136 +1,113 @@
-"use strict";
+// Configurations
+let compileConfig = {
+    settings: require('./src/compile-settings.json')
+};
+let gulpConfig = {
+    settings: require('./src/gulp-settings.json')
+};
+
+
+// Output the error to the terminal instead of dying out
+function swallowError(error) {
+
+    // If you want details of the error in the console
+    console.log(error.toString());
+
+    this.emit('end');
+}
+
 
 // Load plugins
-const autoprefixer = require("gulp-autoprefixer");
-const browsersync = require("browser-sync").create();
-const cleanCSS = require("gulp-clean-css");
-const del = require("del");
-const gulp = require("gulp");
-const header = require("gulp-header");
-const merge = require("merge-stream");
-const plumber = require("gulp-plumber");
-const rename = require("gulp-rename");
-const sass = require("gulp-sass");
-const uglify = require("gulp-uglify");
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const styles = require('gulp-sass');
+const del = require('del');
+const autoprefixer = require('gulp-autoprefixer');
+const concat = require('gulp-concat');
+const sourcemaps = require('gulp-sourcemaps');
+const runSequence = require('run-sequence');
+const cleanCSS = require('gulp-clean-css');
+const minify = require('gulp-minify');
 
-// Load package.json for banner
-const pkg = require('./package.json');
+// Builders
+gulp.task('build:styles', (callback) => {
+    runSequence('clean:styles', 'process:styles', callback);
+});
+gulp.task('build:javascripts', (callback) => {
+    runSequence('clean:javascripts', 'process:javascripts', callback);
+});
+gulp.task('build:fonts', (callback) => {
+    runSequence('clean:fonts', 'process:fonts', callback);
+});
 
-// Set the banner content
-const banner = ['/*!\n',
-  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
-  ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/BlackrockDigital/<%= pkg.name %>/blob/master/LICENSE)\n',
-  ' */\n',
-  '\n'
-].join('');
 
-// BrowserSync
-function browserSync(done) {
-  browsersync.init({
-    server: {
-      baseDir: "./"
-    },
-    port: 3000
-  });
-  done();
-}
+// Processors
+gulp.task('process:styles', () => {
+    return gulp.src(compileConfig.settings.styles)
+        .pipe(sourcemaps.init())
+        .pipe(styles().on('error', swallowError))
+        .pipe(autoprefixer({
+            browsers: ['last 4 versions'],
+            cascade: false
+        }))
+        // Commented until
+        //.pipe(cleanCSS())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('dist/stylesheets'));
+});
+gulp.task('process:javascripts', () => {
+    return gulp.src(compileConfig.settings.javascripts)
+        .on('error', swallowError)
+        .pipe(sourcemaps.init())
+        .pipe(concat('app.js'))
+        .pipe(sourcemaps.write())
+        .pipe(minify())
+        .pipe(gulp.dest('dist/javascripts'));
+});
+gulp.task('process:fonts', () => {
+    return gulp.src(compileConfig.settings.fonts)
+        .pipe(gulp.dest('dist/fonts'));
+});
 
-// BrowserSync reload
-function browserSyncReload(done) {
-  browsersync.reload();
-  done();
-}
 
-// Clean vendor
-function clean() {
-  return del(["./vendor/"]);
-}
+// Cleaners
+gulp.task('clean:styles', () => {
+    return del(['dist/stylesheets']);
+});
+gulp.task('clean:javascripts', () => {
+    return del(['dist/javascripts/*.js']);
+});
+gulp.task('clean:fonts', () => {
+    return del(['dist/fonts']);
+});
 
-// Bring third party dependencies from node_modules into vendor directory
-function modules() {
-  // Bootstrap JS
-  var bootstrap = gulp.src('./node_modules/bootstrap/dist/js/**/*')
-    .pipe(gulp.dest('./vendor/bootstrap/js'));
-  // Font Awesome
-  var fontAwesome = gulp.src('./node_modules/@fortawesome/**/*')
-    .pipe(gulp.dest('./vendor'));
-  // jQuery Easing
-  var jqueryEasing = gulp.src('./node_modules/jquery.easing/*.js')
-    .pipe(gulp.dest('./vendor/jquery-easing'));
-  // Magnific Popup
-  var magnificPopup = gulp.src('./node_modules/magnific-popup/dist/*')
-    .pipe(gulp.dest('./vendor/magnific-popup'));
-  // jQuery
-  var jquery = gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
-    ])
-    .pipe(gulp.dest('./vendor/jquery'));
-  return merge(bootstrap, fontAwesome, jquery, jqueryEasing, magnificPopup);
-}
 
-// CSS task
-function css() {
-  return gulp
-    .src("./scss/**/*.scss")
-    .pipe(plumber())
-    .pipe(sass({
-      outputStyle: "expanded",
-      includePaths: "./node_modules",
-    }))
-    .on("error", sass.logError)
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
-    .pipe(gulp.dest("./css"))
-    .pipe(rename({
-      suffix: ".min"
-    }))
-    .pipe(cleanCSS())
-    .pipe(gulp.dest("./css"))
-    .pipe(browsersync.stream());
-}
+// Watchers
+gulp.task('watcher:styles', (callback) => {
+    runSequence('build:styles', callback);
+});
+gulp.task('watcher:javascripts', (callback) => {
+    runSequence('build:javascripts', callback);
+});
+gulp.task('watcher:fonts', (callback) => {
+    runSequence('build:fonts', callback);
+});
+gulp.task('watcher:templates', (callback) => {
+    runSequence('reload:template', callback);
+});
 
-// JS task
-function js() {
-  return gulp
-    .src([
-      './js/*.js',
-      '!./js/*.min.js'
-    ])
-    .pipe(uglify())
-    .pipe(header(banner, {
-      pkg: pkg
-    }))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest('./js'))
-    .pipe(browsersync.stream());
-}
 
-// Watch files
-function watchFiles() {
-  gulp.watch("./scss/**/*", css);
-  gulp.watch("./js/**/*", js);
-  gulp.watch("./**/*.html", browserSyncReload);
-}
+// Tasks
+gulp.task('default', (callback) => {
+    runSequence('build', 'watch', callback);
+});
 
-// Define complex tasks
-const vendor = gulp.series(clean, modules);
-const build = gulp.series(vendor, gulp.parallel(css, js));
-const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
-
-// Export tasks
-exports.css = css;
-exports.js = js;
-exports.clean = clean;
-exports.vendor = vendor;
-exports.build = build;
-exports.watch = watch;
-exports.default = build;
+gulp.task('watch', ['build'], () => {
+    gulp.watch('src/styles/**/*.scss', ['watcher:styles']);
+    gulp.watch('src/javascripts/**/*.js', ['watcher:javascripts']);
+    gulp.watch('src/fonts/**/*.+(eot|svg|ttf|woff|woff2)', ['watcher:fonts']);
+    gulp.watch('**/*.+(twig|twig.html|tpl|tpl.php|html)', ['watcher:templates']);
+});
+gulp.task('build', (callback) => {
+    runSequence(['build:fonts','build:javascripts', 'build:styles'], callback);
+});

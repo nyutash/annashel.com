@@ -1,0 +1,61 @@
+// |--------------------------------------------------------------------------
+// | [Component name]
+// |--------------------------------------------------------------------------
+// |
+// | This file contains styles for the following:
+// | - .[your_class]
+// |
+
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Mixins
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Styling
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Variants
+// --------------------------------------------------
+
+
+// --------------------------------------------------
+// Responsive
+// --------------------------------------------------
+
+// Mobile - and up
+@include media-breakpoint-up(sm) {}
+
+// Mobile - only
+@include media-breakpoint-only(sm) {}
+
+// Tablet - and up
+@include media-breakpoint-up(md) {}
+
+// Tablet - only
+@include media-breakpoint-only(md) {}
+
+// Desktop - and up
+@include media-breakpoint-up(lg) {}
+
+// Desktop - only
+@include media-breakpoint-only(lg) {}
+
+// Large desktop - and up
+@include media-breakpoint-up(xl) {}
+
+// Print
+@media print {}
+
+// Touch
+.touchevents {}
+
+// No touch
+.no-touchevents {}

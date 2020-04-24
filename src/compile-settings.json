@@ -1,0 +1,15 @@
+{
+  "javascripts": [
+    "node_modules/jquery/dist/jquery.js",
+    "node_modules/bootstrap/js/dist/util.js",
+    "node_modules/bootstrap/js/dist/modal.js",
+    "src/javascripts/app.js"
+  ],
+  "styles": [
+    "src/styles/stylesheet.scss"
+  ],
+  "fonts": [
+    "node_modules/material-design-icons/iconfont/MaterialIcons-Regular.*",
+    "src/fonts/**/*"
+  ]
+}
