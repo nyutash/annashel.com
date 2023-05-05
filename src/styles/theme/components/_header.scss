@@ -97,6 +97,7 @@ header {
             }
         }
     }
+
 }
 
 .social {
@@ -104,10 +105,12 @@ header {
     display: inline-flex;
     align-items: center;
     a {
-        color: $btn-default-color;
+        color: $btn-default-bg;
         font-size: $font-size-large;
         height: 32px;
         width: 32px;
+        background: linear-gradient(90deg, #2C9DA9 0%, #70BAC1 100%);
+        border-radius: 5px;
         display: inline-flex;
         align-items: center;
         &+a {
@@ -122,6 +125,8 @@ header {
         }
     }
     &.hero--social {
+        position: relative;s
+
         a {
             background: $btn-default-bg;
             border-radius: $border-radius-small;
@@ -135,6 +140,22 @@ header {
             }
         }
     }
+
+    .contact--pointer {
+        position: absolute;
+        left: 40px;
+        top: 40px;
+        width: 160px;
+        height: 50px;
+  
+        font-family: 'Handlee', cursive;
+        font-size: $font-size-small;
+        color: $btn-default-color;
+  
+        background:  url(../../img/bg-arrow.svg) top left no-repeat;
+        padding: 25px 0 0 45px;
+      }
+  
 }
 
 // --------------------------------------------------
